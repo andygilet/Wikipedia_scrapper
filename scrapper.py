@@ -2,7 +2,6 @@ import requests
 
 def get_leaders():
     url = "https://country-leaders.onrender.com/"
-    status_url = "status"
     country_url = "countries"
     cookie_url = "cookie"
     leaders_url = "leaders"
@@ -24,8 +23,8 @@ def get_leaders():
     return leaders_per_country
 
 
-req = requests.get(url + status_url)
+req = requests.get("https://country-leaders.onrender.com/status")
 if req.status_code == 200:
-    print(f"Request to {url}/{status_url} was succesfull!")
+    print(f"Request to https://country-leaders.onrender.com/status was succesfull!")
 else:
-    print(f"A problem has occured during the request to {url}/{status_url}!")
+    print(f"A problem has occured during the request to https://country-leaders.onrender.com/status!")
