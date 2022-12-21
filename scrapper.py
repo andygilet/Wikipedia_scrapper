@@ -21,10 +21,3 @@ def get_leaders():
                            countries[3]: leaders[3],
                            countries[4]: leaders[4]}
     return leaders_per_country
-
-
-req = requests.get("https://country-leaders.onrender.com/status")
-if req.status_code == 200:
-    print(f"Request to https://country-leaders.onrender.com/status was succesfull!")
-else:
-    print(f"A problem has occured during the request to https://country-leaders.onrender.com/status!")
