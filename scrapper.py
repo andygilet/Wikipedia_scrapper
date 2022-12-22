@@ -1,4 +1,6 @@
 import requests
+import bs4
+import re
 
 def get_leaders():
     url = "https://country-leaders.onrender.com/"
@@ -21,3 +23,13 @@ def get_leaders():
                            countries[3]: leaders[3],
                            countries[4]: leaders[4]}
     return leaders_per_country
+
+def get_first_paragraph(url):
+    print(f"Getting the first paragraph of : {url}")
+    req = requests.get(url)
+    soup = bs4.BeautifulSoup(req.text, "html.parser")
+    for paragraph in soup.find_all('p'):
+        if paragraph.find_all('b'):
+            first_paragraph = re.sub(" \([^()]+\)", '', paragraph.text)
+            first_paragraph = re.sub("(?P<url>https?://[^\s]+)", '', first_paragraph)
+            return first_paragraph
