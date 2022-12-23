@@ -107,3 +107,5 @@ def get_leaders():
             first_paragraphs.append(get_leaders_of_country_first_paragraph(session,
                                                                            leaders[i]))
         return leaders_per_country
+    
+leaders_per_country = get_leaders()
